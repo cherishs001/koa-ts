@@ -1,0 +1,73 @@
+{
+  "name": "koa-ts",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "cover": "nyc mocha",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "ts-node app.ts",
+    "build": "npm run lint && tsc",
+    "build:win64": "npm run lint && npm run clean:build-win64 && tsc",
+    "build:linux": "npm run lint && npm run clean:build-linux && tsc",
+    "ci": "npm run test && npm run lint",
+    "clean": "npm run clean:build",
+    "clean:build-win64": "rd /s /q build",
+    "clean:build-linux": "rm -rf ./build"
+  },
+  "author": "cherish001",
+  "engines": {
+    "node": ">= 7.6"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chai-http": "^3.0.5",
+    "@types/koa": "^2.0.47",
+    "@types/koa-bodyparser": "^4.2.1",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-router": "^7.0.35",
+    "@types/mocha": "^5.2.5",
+    "@types/mysql": "^2.15.5",
+    "@types/node": "^10.12.12",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1"
+  },
+  "nyc": {
+    "include": [
+      "test/**/*.ts"
+    ],
+    "exclude": [
+      "typings",
+      "**/*.nyc.ts"
+    ],
+    "extension": [
+      ".ts",
+      ".js"
+    ],
+    "require": [
+      "./node_modules/ts-node"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "cache": false,
+    "report-dir": "./coverage",
+    "all": true
+  },
+  "dependencies": {
+    "@koa/cors": "^2.2.2",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "mysql": "^2.16.0"
+  }
+}
