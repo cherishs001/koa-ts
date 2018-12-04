@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.2",
+    "apollo-server-koa": "^2.2.5",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",

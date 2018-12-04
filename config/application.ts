@@ -1,9 +1,9 @@
-import * as Koa from 'koa'
-import * as bodyParser from 'koa-bodyparser'
-import * as logger from 'koa-logger'
-import {router} from './routers'
-import {Environment} from './environments'
-import {Connection} from './connection'
+import * as Koa from 'koa';
+import * as bodyParser from 'koa-bodyparser';
+import * as logger from 'koa-logger';
+import {router} from './routers';
+import {Environment} from './environments';
+import {Connection} from './connection';
 
 export const createServer = async (): Promise<any> => {
     const app = new Koa();
@@ -12,6 +12,9 @@ export const createServer = async (): Promise<any> => {
 
     app.use(bodyParser());
     app.use(router.routes()).use(router.allowedMethods());
+
+    //@Middleware
+    //todo 搞不清楚
 
     try {
         await Connection(app);
