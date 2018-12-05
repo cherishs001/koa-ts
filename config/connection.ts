@@ -1,7 +1,6 @@
 import * as mysql from 'mysql';
 import {Environment} from './environments';
 import DatabaseController from '../utils/dbc';
-import Rds from '../utils/dbc/rds';
 
 const {databases} = Environment;
 
